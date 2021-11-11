@@ -1,0 +1,122 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 700px;
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  right: 100px;
+}
+h2 {
+  text-align: left;
+  padding: 13px;
+  text-transform: capitalize;
+}
+p {
+  font-size: 15px;
+  text-align: left;
+}
+
+.weather-app {
+  border-style: solid;
+  border-width: 1px;
+  background: #f5ebdf;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+.search-button {
+  background: #333133;
+  border-color: #333133;
+  border-style: solid;
+  color: white;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin: 0 auto;
+  padding: 10px;
+  transition: all 0.3s;
+  width: 100px;
+}
+.current-button {
+  background: #333133;
+  border-color: #333133;
+  border-style: solid;
+  color: white;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin: 0 auto;
+  padding: 10px;
+  transition: all 0.3s;
+  width: 100px;
+}
+.search.hover {
+  background: white;
+  border: 2px solid #333133;
+  color: #333133;
+  cursor: pointer;
+}
+.total-forecast {
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+}
+
+.units a {
+  text-decoration: none;
+  color: #ec6e4c;
+}
+
+.units .active {
+  color: #333133;
+  cursor: default;
+}
+
+.unites .active:hover {
+  text-decoration: none;
+}
+
+.city {
+  border-style: solid;
+  border-width: 1px;
+  border-right: none;
+}
+.rain {
+  border-style: solid;
+  border-width: 1px;
+  border-left: none;
+}
+.fa-cloud {
+  font-size: 80px;
+  padding: 25px;
+}
+.weather-forecast {
+  color: #000;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.weather-forecast-temperatures {
+  font-size: 13px;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.5;
+}
+
+.fa-cloud-sun {
+  font-size: 30px;
+}
+.fa-cloud-showers-heavy {
+  font-size: 30px;
+}
