@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
-import FormattedDate from "./FormattedDate";
+import Weatherinfo from "./Weatherinfo";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
+
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       city: response.data.name,
@@ -18,11 +19,26 @@ export default function Weather(props) {
     });
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    search(city);
+  }
+
+  function search() {
+    const apiKey = "ff48e8f1972c30f87339cf84950e7d10";
+    let apiURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiURL).then(handleResponse);
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
         <div className="weather-app">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-8">
                 <input
@@ -30,6 +46,7 @@ export default function Weather(props) {
                   id="search-input"
                   placeholder="Enter a city"
                   className="form-control"
+                  onChange={handleCityChange}
                 />
               </div>
               <div className="col-2">
@@ -48,91 +65,12 @@ export default function Weather(props) {
               </div>
             </div>
           </form>
-          <br />
-          <div className="total-forecast">
-            <div className="container day-forecast">
-              <div className="row">
-                <div className="col-3 city">
-                  <h2>
-                    <span id="city">{props.defaultCity}</span>
-                  </h2>
-                  <p>
-                    <span className="currentDate">
-                      <FormattedDate date={weatherData.date} />
-                    </span>
-                  </p>
-                </div>
-                <div className="col-3 rain">
-                  <br />
-                  <br />
-                  <br />
-                  <p>
-                    Humidity: <span id="humidity">{weatherData.humidity}</span>%
-                    <br />
-                    Wind: <span id="wind">
-                      {Math.round(weatherData.wind)}
-                    </span>{" "}
-                    km/h
-                  </p>
-                </div>
-                <div className="col-3 weather-icon">
-                  <img
-                    src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                    id="forecast-icon-0"
-                    alt="weather-icon"
-                  />
-                </div>
-                <div className="col-3 current-forecast">
-                  <h2>
-                    <div id="temperature-description">
-                      {weatherData.description}
-                    </div>
-                  </h2>
-                  <h3>
-                    <span id="temperature">
-                      {Math.round(weatherData.temperature)}
-                    </span>
-                    <span className="units">
-                      <a href="/" id="celsius-link" className="active">
-                        °C
-                      </a>
-                      |
-                      <a href="/" id="fahrenheit-link">
-                        °F
-                      </a>
-                    </span>
-                  </h3>
-                </div>
-              </div>
-              <br />
-              <div className="weather-forecast" id="forecast"></div>
-            </div>
-          </div>
+          <Weatherinfo data={weatherData} />
         </div>
-        <p>
-          This project was coded by{" "}
-          <a
-            href="https://www.linkedin.com/in/eva-groenendijk-22144180/"
-            target="_blank"
-          >
-            Eva Groenendijk
-          </a>{" "}
-          and is
-          <a
-            href="https://github.com/egroenendijk/shecodes-react-weather-project"
-            target="_blank"
-          >
-            {" "}
-            open-sourced on GitHub{" "}
-          </a>{" "}
-        </p>
       </div>
     );
   } else {
-    const apiKey = "ff48e8f1972c30f87339cf84950e7d10";
-    let apiURL = `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-    axios.get(apiURL).then(handleResponse);
-
+    search();
     return "Loading";
   }
 }
