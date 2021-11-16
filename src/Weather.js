@@ -69,6 +69,23 @@ export default function Weather(props) {
           <br />
           <Weatherinfo data={weatherData} />
         </div>
+        <p>
+          This project was coded by{" "}
+          <a
+            href="https://www.linkedin.com/in/eva-groenendijk-22144180/"
+            target="_blank"
+          >
+            Eva Groenendijk
+          </a>{" "}
+          and is{" "}
+          <a
+            href="https://github.com/egroenendijk/shecodes-react-weather-project"
+            target="_blank"
+          >
+            open-sourced
+          </a>{" "}
+          on GitHub
+        </p>
       </div>
     );
   } else {
