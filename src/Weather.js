@@ -71,17 +71,11 @@ export default function Weather(props) {
         </div>
         <p>
           This project was coded by{" "}
-          <a
-            href="https://www.linkedin.com/in/eva-groenendijk-22144180/"
-            target="_blank"
-          >
+          <a href="https://www.linkedin.com/in/eva-groenendijk-22144180/">
             Eva Groenendijk
           </a>{" "}
           and is{" "}
-          <a
-            href="https://github.com/egroenendijk/shecodes-react-weather-project"
-            target="_blank"
-          >
+          <a href="https://github.com/egroenendijk/shecodes-react-weather-project">
             open-sourced
           </a>{" "}
           on GitHub
