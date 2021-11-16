@@ -27,7 +27,7 @@ export default function Weather(props) {
 
   function search() {
     const apiKey = "ff48e8f1972c30f87339cf84950e7d10";
-    let apiURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiURL).then(handleResponse);
   }
 
