@@ -40,21 +40,9 @@ p {
   margin: 0 auto;
   padding: 10px;
   transition: all 0.3s;
-  width: 100px;
+  width: 100%;
 }
-.current-button {
-  background: #333133;
-  border-color: #333133;
-  border-style: solid;
-  color: white;
-  display: block;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  margin: 0 auto;
-  padding: 10px;
-  transition: all 0.3s;
-  width: 100px;
-}
+
 .search.hover {
   background: white;
   border: 2px solid #333133;
